@@ -10,5 +10,13 @@ public abstract class DAO<T> {
      *
      * @see url
      */
-	//public Connection connectDAO ;
+	public static Connection connectDAO;
+
+	public abstract T create(T obj);
+
+	public abstract T update(T obj);
+
+	public abstract T read(T obj);
+
+	public abstract T delete(T obj);
 }
