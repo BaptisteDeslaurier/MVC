@@ -10,13 +10,13 @@ public abstract class DAO<T> {
      *
      * @see url
      */
-	public static Connection connectDAO;
+	public Connection connect = ConnectionPostgreSQL.getInstance();;
 
 	public abstract T create(T obj);
 
 	public abstract T update(T obj);
 
-	public abstract T read(T obj);
+	public abstract T read(int numDiv);
 
-	public abstract T delete(T obj);
+	public abstract void delete(T obj);
 }

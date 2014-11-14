@@ -31,6 +31,13 @@ public class Eleve {
 	 */
 	private String dateNaiss;
 
+	/**
+	 * Le code division d'un élève.
+	 *
+	 * @see codeDivision
+	 */
+	private Division codeDivision;
+
 
 	//*************   ACCESSEURS    *************
 	/**
@@ -73,6 +80,15 @@ public class Eleve {
 		return dateNaiss;
 	}
 
+	/**
+     * Retourne le code division d'un élève.
+     *
+     * @return Le code division d'un élève.
+     */
+	public Division getCodeDivision()
+	{
+		return codeDivision;
+	}
 
 	//*************   MUTATEURS    *************
 	/**
@@ -119,6 +135,17 @@ public class Eleve {
 		this.dateNaiss = dateNaiss;
 	}
 
+	/**
+     * Met à jour le code division de l'élève.
+     *
+     * @param codeDivision
+     * Le nouveau code division de l'élève.
+     */
+	public void setCodeDivision(Division codeDivision)
+	{
+		this.codeDivision = codeDivision;
+	}
+
 
 	//*************   CONSTRUCTEURS   *************
 	/**
@@ -130,6 +157,7 @@ public class Eleve {
 		this.nom = "Deslaurier";
 		this.prenom = "Baptiste";
 		this.dateNaiss = "01/09/1994";
+		this.codeDivision = new Division();
 	}
 
 	/**
@@ -144,12 +172,13 @@ public class Eleve {
      * @param dateNaiss
      * La date de naissance de l'élève.
      */
-	public Eleve(int code, String nom, String prenom, String dateNaiss)
+	public Eleve(int code, String nom, String prenom, String dateNaiss, Division codeDivision)
 	{
 		this.code = code;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateNaiss = dateNaiss;
+		this.codeDivision = codeDivision;
 	}
 
 
@@ -159,6 +188,6 @@ public class Eleve {
      */
 	public String toString()
 	{
-		return "Code élève : " + this.code + ", se nomme : " + this.nom + " " + this.prenom + " et est né en " + this.dateNaiss;
+		return "Code élève : " + this.code + ", se nomme : " + this.nom + " " + this.prenom + ", est né en " + this.dateNaiss + " et a pour code division : " + this.codeDivision;
 	}
 }

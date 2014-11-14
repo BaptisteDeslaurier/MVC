@@ -1,5 +1,6 @@
 package tests;
 
+import classes.Division;
 import classes.Eleve;
 
 public class testsEleve {
@@ -11,7 +12,7 @@ public class testsEleve {
 		// TODO Auto-generated method stub
 
 		Eleve monEleveDefaut = new Eleve();
-		Eleve monEleveInit = new Eleve(1, "Dabre", "Thomas", "14/12/1989");
+		Eleve monEleveInit = new Eleve(1, "Dabre", "Thomas", "14/12/1989", new Division(1, "STS1"));
 
 		System.out.println(monEleveDefaut.getCode());
 		System.out.println(monEleveDefaut.getNom());
@@ -25,7 +26,6 @@ public class testsEleve {
 		System.out.println(monEleveInit.getPrenom());
 		System.out.println(monEleveInit.getDateNaiss());
 
-		monEleveInit.setCode(3);
 		monEleveInit.setNom("Legardinier");
 		monEleveInit.setPrenom("Ronan");
 		monEleveInit.setDateNaiss("21/02/1990");
