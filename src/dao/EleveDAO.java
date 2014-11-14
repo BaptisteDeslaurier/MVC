@@ -44,7 +44,7 @@ public class EleveDAO extends DAO<Eleve> {
 
 	public Eleve update(Eleve obj) {
 		try {
-			this.connect.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE).executeUpdate("UPDATE \"mvc\".eleve SET nom = '" + obj.getNom() + "', prenom = '" + obj.getPrenom() + "', datenaiss = '" + obj.getDateNaiss() + "', codediv = '" + obj.getCodeDivision() + "'"+" WHERE code = '" + obj.getCode()+"'");
+			this.connect.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE).executeUpdate("UPDATE \"mvc\".eleve SET nom = '" + obj.getNom() + "', prenom = '" + obj.getPrenom() + "', datenaiss = '" + obj.getDateNaiss() + "', codediv = '" + obj.getCodeDivision().getCode() + "'"+" WHERE code = '" + obj.getCode()+"'");
             obj = this.read(obj.getCode());
 	    } catch (SQLException e) {
 	    	e.printStackTrace();
