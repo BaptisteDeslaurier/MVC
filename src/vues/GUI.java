@@ -15,16 +15,15 @@ import controleurs.ControleurPrincipal;
 import classes.Division;
 import dao.DAO;
 import dao.DivisionDAO;
+import defaut.PointEntree;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 import java.util.List;
 
 public class GUI extends JFrame {
 
-	private JPanel contentPane;
-	private ControleurPrincipal leControleur = new ControleurPrincipal();
+	public JPanel contentPane;
+	public JMenuItem mntmQuitter = new JMenuItem("Quitter");
+	public ControleurPrincipal leControleur = new ControleurPrincipal(null, null);
 	/**
 	 * Launch the application.
 	 */
@@ -32,8 +31,7 @@ public class GUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUI frame = new GUI();
-					frame.setVisible(true);
+					PointEntree.interfaceGraph.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -44,7 +42,11 @@ public class GUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GUI() {
+	public GUI(ControleurPrincipal leControleur) {
+		this.leControleur=leControleur;
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+
 		setTitle("Ecole");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -81,14 +83,8 @@ public class GUI extends JFrame {
 		}
 
 		//Exit dans le controleur
-		/*JMenuItem mntmQuitter = new JMenuItem("Quitter");
-		mntmQuitter.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.exit(0);
-			}
-		});
-		menuBar.add(mntmQuitter);*/
+		mntmQuitter.addActionListener(leControleur);
+		menuBar.add(mntmQuitter);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
