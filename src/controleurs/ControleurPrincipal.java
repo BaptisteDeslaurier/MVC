@@ -1,13 +1,16 @@
 package controleurs;
 
-public class ControleurPrincipal {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+public class ControleurPrincipal implements ActionListener {
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		//e.getSource()==
 
 	}
+
 
 }

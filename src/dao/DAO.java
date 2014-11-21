@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.util.List;
 
 public abstract class DAO<T> {
 
@@ -17,6 +18,8 @@ public abstract class DAO<T> {
 	public abstract T update(T obj);
 
 	public abstract T read(int numDiv);
+
+	public abstract List<T> readAll();
 
 	public abstract void delete(T obj);
 }
