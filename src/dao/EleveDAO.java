@@ -84,4 +84,30 @@ public class EleveDAO extends DAO<Eleve> {
 
 		return lesEleve;
 	}
+
+	public List<Eleve> selectAlluneDivision(int codeDivision)
+	{
+		List<Eleve> list = new ArrayList<Eleve>();
+
+		try {
+			// We create a new DivisionDAO objet in order to get the division in db which had the division code into the Eleve
+			DAO<Division> listeDivisions = new DivisionDAO();
+
+			Division laDivision = new Division(listeDivisions.read(codeDivision));
+			// We execute the SQL query
+			ResultSet result = this.connect.createStatement().executeQuery("select * from \"mvc\".eleve where codediv=" + codeDivision);
+			// For each Eleve, who was returned from the query, we'll add a new Eleve instance to the Eleve list
+			while(result.next())
+			{
+				list.add(new Eleve(result.getInt("code"),
+									result.getString("nom"),
+									result.getString("prenom"),
+									result.getString("date_naiss"),
+									laDivision));
+			}//end while()
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}//end catch
+		return list;
+	}//end selectAllOfOneDivision
 }

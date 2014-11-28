@@ -16,6 +16,7 @@ public class ControleurPrincipal implements ActionListener {
 
 	private GUI vue;
 	private DAO<Division> laDivision = new DivisionDAO();
+	private DAO<Division> lesDivision = new DivisionDAO();
 	private DAO<Eleve> leleve = new EleveDAO();
 
 	 // Constructeur
@@ -37,6 +38,7 @@ public class ControleurPrincipal implements ActionListener {
 				vue.panelVoirDiv.setVisible(true);
 			}else if (e.getSource() instanceof JMenuItem)
 				{
+					vue.panelEleve.laDivision = new Division(lesDivision.read(Integer.parseInt(e.getActionCommand())));
 					vue.panelEleve.setVisible(true);
 				}
 	}

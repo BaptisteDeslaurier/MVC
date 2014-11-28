@@ -94,6 +94,12 @@ public class Division {
 		this.libelle = libelle;
 	}
 
+	public Division(Division laDivision)
+	{
+		this.code = laDivision.getCode();
+		this.libelle = laDivision.getLibelle();
+	}
+
 
 	//*************   METHODES   *************
 	/**
