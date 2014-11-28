@@ -50,4 +50,11 @@ public class ConnectionPostgreSQL {
 		}
 		return connect;
 		}
+	public static void Stop(){
+		try {
+			connect.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

@@ -24,20 +24,7 @@ public class GUI extends JFrame {
 	public JPanel contentPane;
 	public JMenuItem mntmQuitter = new JMenuItem("Quitter");
 	public ControleurPrincipal leControleur = new ControleurPrincipal(null, null);
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PointEntree.interfaceGraph.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
@@ -89,6 +76,8 @@ public class GUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+
+		setVisible(true);
 	}
 
 }

@@ -31,7 +31,7 @@ public class ControleurPrincipal implements ActionListener {
 		// TODO Auto-generated method stub
 		if (e.getSource() == vue.mntmQuitter) {
 			System.exit(0);
-		}
+		}//else if (e.getSource() == vue.mntmVoir)
 
 	}
 
