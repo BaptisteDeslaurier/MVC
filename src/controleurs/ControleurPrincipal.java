@@ -3,6 +3,8 @@ package controleurs;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JMenuItem;
+
 import vues.GUI;
 import dao.DAO;
 import classes.Division;
@@ -31,9 +33,11 @@ public class ControleurPrincipal implements ActionListener {
 		// TODO Auto-generated method stub
 		if (e.getSource() == vue.mntmQuitter) {
 			System.exit(0);
-		}//else if (e.getSource() == vue.mntmVoir)
-
+		}else if (e.getSource() == vue.mntmVoir){
+				vue.panelVoirDiv.setVisible(true);
+			}else if (e.getSource() instanceof JMenuItem)
+				{
+					vue.panelEleve.setVisible(true);
+				}
 	}
-
-
 }

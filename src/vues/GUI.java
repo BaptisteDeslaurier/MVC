@@ -15,16 +15,18 @@ import controleurs.ControleurPrincipal;
 import classes.Division;
 import dao.DAO;
 import dao.DivisionDAO;
-import defaut.PointEntree;
+import vues.seeDiv;
 
 import java.util.List;
 
 public class GUI extends JFrame {
 
 	public JPanel contentPane;
-	public JMenuItem mntmQuitter = new JMenuItem("Quitter");
 	public ControleurPrincipal leControleur = new ControleurPrincipal(null, null);
-
+	public JMenuItem mntmQuitter = new JMenuItem("Quitter");
+	public JMenuItem mntmVoir = new JMenuItem("Voir");
+	public seeDiv panelVoirDiv;
+	public voirEleve panelEleve;
 
 	/**
 	 * Create the frame.
@@ -44,11 +46,11 @@ public class GUI extends JFrame {
 		JMenu mnNewMenu = new JMenu("Division");
 		menuBar.add(mnNewMenu);
 
-		JMenuItem mntmVoir = new JMenuItem("Voir");
-		//mntmVoir.addActionListener(leControleur);
+		mntmVoir.addActionListener(leControleur);
 		mnNewMenu.add(mntmVoir);
 
 		JMenuItem mntmAjouter = new JMenuItem("Ajouter");
+		mntmAjouter.addActionListener(leControleur);
 		mnNewMenu.add(mntmAjouter);
 
 		JMenuItem mntmModifier = new JMenuItem("Modifier");
@@ -76,6 +78,14 @@ public class GUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+
+		panelVoirDiv = new seeDiv(leControleur);
+		contentPane.add(panelVoirDiv);
+		panelVoirDiv.setVisible(false);
+
+		panelEleve = new voirEleve(leControleur);
+		contentPane.add(panelEleve);
+		panelEleve.setVisible(false);
 
 		setVisible(true);
 	}
